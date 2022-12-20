@@ -23,7 +23,27 @@ app.post('/tasks', async (req, res) => {
     res.end();
 });
 
+app.put('/tasks', async (req, res) => {
+    const tasksArray = JSON.parse(await fs.readFile(jsonPath, 'utf-8'));
+    const taskIndex = tasksArray.findIndex(task => task.id === req.body.id);
+    if (taskIndex >= 0) {
+        tasksArray[taskIndex].status = req.body.status;
+    }
+    await fs.writeFile(jsonPath, JSON.stringify(tasksArray))
+    res.send('Tarea actualizado')
+})
+
+app.delete('/tasks', async (req, res) => {
+    const tasksArray = JSON.parse(await fs.readFile(jsonPath, 'utf-8'));
+    const taskIndex = tasksArray.findIndex(task => task.id === req.body.id);
+    if (taskIndex >= 0) {
+        tasksArray.splice(taskIndex, 1)
+    }
+    await fs.writeFile(jsonPath, JSON.stringify(tasksArray))
+    res.send('Tarea eliminada')
+})
+
 const PORT = 8000;
 app.listen(PORT, () => {
     console.log('servidor corriendo con express');
-});
+}); 

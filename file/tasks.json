@@ -4,5 +4,23 @@
     "title": "estudiar node",
     "description": "buscar información, leer documentacion y practicar nodejs",
     "status": false
+  },
+  {
+    "title": "shuffling",
+    "description": "practice and dance shuffle",
+    "status": true,
+    "id": 2
+  },
+  {
+    "title": "sacar al perro",
+    "description": "pasar tiempo con tu mascota",
+    "status": false,
+    "id": 3
+  },
+  {
+    "title": "hacer las compras",
+    "description": "realizar los comprados en el supermercado",
+    "status": false,
+    "id": 4
   }
 ]
